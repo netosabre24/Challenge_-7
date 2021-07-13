@@ -16,3 +16,7 @@ The goal of this project was to act as a Human Resources Analyst to determine wh
    * SQL
    * PostgresSQL
  
+After reviewing the employee files for Pewlett Hackard, an entity relationship diagram was created using quick database diagrams to gather and organize the key elements from various data tables. The data was imported using postgres and the pgAdmin interface. SQL queries were written to create data tables by joining primary keys from different data sets together and establishing foreign keys. The leadership is concerned about a "silver tsunami," where there is a mass exodus of retiring employees creating a massive amount of job vacancies. SQL queries were created to generate a list of retiring employees by title and a list of employees eligible for mentorship.
+
+
+In conclusion, it all depends on how many retiring employees are willing to stay and mentor others. Nevertheless, a good mentor to mentee ratio I would say is 1:3. That is one mentor for 3 new employees. Assuming each year there are more or less 13,000 employees retiring and 13,000 new employees entering, we would need 3,000-4,000 mentors distributed proportionally in all the departments. We would need that in order for every department to stay put, at least 25% of the retirees accept the mentorship program because that would leave PH witha a 1:3 ratio.
