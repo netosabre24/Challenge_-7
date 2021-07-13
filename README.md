@@ -12,7 +12,7 @@ The goal of this project was to act as a Human Resources Analyst to determine wh
   * titles.csv
  
  * Programs
-  * PgAdmin
-  * SQL
-  * PostgresSQL
+   * PgAdmin
+   * SQL
+   * PostgresSQL
  
