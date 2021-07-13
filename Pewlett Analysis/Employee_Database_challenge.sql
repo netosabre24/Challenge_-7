@@ -1,4 +1,4 @@
--- Number of [titles] retiring
+--Number of titles retiring
 SELECT ce.emp_no,
   ce.first_name,
   ce.last_name,
@@ -12,21 +12,21 @@ FROM employees AS ce
 WHERE birth_date BETWEEN '1952-01-01' AND '1955-12-31'
 ORDER BY ce.emp_no;
 
--- Use Dictinct with Orderby to remove duplicate rows
+--Use Dictinct with Orderby to remove duplicate rows
 SELECT DISTINCT ON (emp_no) emp_no, first_name, last_name, title
 INTO unique_titles
 FROM ret_titles
 ORDER BY emp_no ASC, to_date DESC;
 
 
--- Counting the number of each employee per title
+--Counting each employee per title
 SELECT COUNT(title), title
 INTO retiring_titles
 FROM unique_titles
 GROUP BY title
 ORDER BY count DESC;
 
--- Creating a list of employees eligible for potential mentorship program
+--Creating a list of employees eligible for potential mentorship program
 SELECT DISTINCT ON (e.emp_no) e.emp_no,
   e.first_name,
   e.last_name,
