@@ -1,18 +1,16 @@
--- This is the final version of all queries
--- Retirement eligibility & creating new table to hold info
 SELECT emp_no, first_name, last_name
 INTO retirement_info
 FROM employees
 WHERE (birth_date BETWEEN '1952-01-01' AND '1955-12-31')
 AND (hire_date BETWEEN '1985-01-01' AND '1988-12-31');
 
--- Number of employees retiring
+--Number of employees retiring
 SELECT COUNT(first_name)
 FROM employees
 WHERE (birth_date BETWEEN '1952-01-01' AND '1955-12-31')
 AND (hire_date BETWEEN '1985-01-01' AND '1988-12-31');
 
--- Joining departments and dept_manager tables
+--Joining departments and dept_manager tables
 SELECT d.dept_name,
 	dm.emp_no,
 	dm.from_date,
@@ -22,7 +20,7 @@ INNER JOIN dept_manager as dm
 ON d.dept_no = dm.dept_no
 WHERE dm.to_date = ('9999-01-01');
 
--- Selecting current employees
+--Selecting current employees
 SELECT ri.emp_no,
 	ri.first_name,
 	ri.last_name,
@@ -33,7 +31,7 @@ LEFT JOIN dept_emp as de
 ON ri.emp_no = de.emp_no
 WHERE de.to_date = ('9999-01-01');
 
--- Employee count by department number
+--Employee count by department number
 SELECT COUNT(ce.emp_no), de.dept_no
 FROM current_emp as ce
 LEFT JOIN dept_emp as de
@@ -60,7 +58,7 @@ WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
 AND (e.hire_date BETWEEN '1985-01-01' AND '1988-12-31')
 AND (de.to_date = '9999-01-01');
 
--- List of managers per department
+--List of managers per department
 SELECT  dm.dept_no,
         d.dept_name,
         dm.emp_no,
@@ -75,7 +73,7 @@ FROM dept_manager AS dm
     INNER JOIN current_emp AS ce
         ON (dm.emp_no = ce.emp_no);
 
--- List of employees with departments
+--List of employees with departments
 SELECT ce.emp_no,
 	ce.first_name,
 	ce.last_name,
@@ -87,12 +85,12 @@ FROM current_emp as ce
 	INNER JOIN departments AS d
 		ON (de.dept_no = d.dept_no);
 
--- List of Sales employees
+--List of Sales employees
 SELECT ce.emp_no,
 	ce.first_name,
 	ce.last_name,
 	d.dept_name
--- INTO sales_info
+--INTO sales_info
 FROM current_emp as ce
 	INNER JOIN dept_emp AS de
 		ON (ce.emp_no = de.emp_no)
@@ -100,7 +98,7 @@ FROM current_emp as ce
 		ON (de.dept_no = d.dept_no)
 WHERE d.dept_name = 'Sales';
 
--- List of employees in Sales and Development
+--List of employees in Sales and Development
 SELECT ce.emp_no,
 	ce.first_name,
 	ce.last_name,
